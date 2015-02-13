@@ -17,7 +17,7 @@ public class Cat extends Mammal {
 	
 	@Override
 	public String getInfo() {
-		String info = "A cat named" + getFriendlyName() + ", latin: " + getLatinName() +
+		String info = "A cat named: " + getFriendlyName() + ", latin: " + getLatinName() +
 				" That nursed for  " + getGestationTime() + " months" +
 				" and that has " + getNumberOfLives() + " lives";
 		return info;

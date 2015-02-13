@@ -1,14 +1,19 @@
+import java.awt.BorderLayout;
 import java.awt.EventQueue;
-import java.util.ArrayList;
 
 import javax.swing.JFrame;
-import java.awt.TextArea;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 
+import java.awt.TextArea;
+import java.util.ArrayList;
 
-public class GUI {
 
-	private JFrame frame;
+public class GUI extends JFrame {
+
+	private JPanel contentPane;
+	ArrayList<Animal> animals; 
 
 	/**
 	 * Launch the application.
@@ -17,8 +22,8 @@ public class GUI {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					GUI window = new GUI();
-					window.frame.setVisible(true);
+					GUI frame = new GUI();
+					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -27,49 +32,41 @@ public class GUI {
 	}
 
 	/**
-	 * Create the application.
+	 * Create the frame.
 	 */
-	
-       public static void loopingAnimals(String[] args) {
+	public GUI() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 300);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
 		
-		ArrayList<Animal> animals = new ArrayList<Animal>();
+		JLabel lblNewLabel = new JLabel("Animal list");
+		lblNewLabel.setBounds(10, 11, 125, 14);
+		contentPane.add(lblNewLabel);
+		
+		TextArea textArea = new TextArea();
+		textArea.setBounds(10, 31, 414, 220);
+		contentPane.add(textArea);
+	
+		
+        animals = new ArrayList<Animal>();
 		
 		animals.add(new Dog("canis lupus", 4, true));
-		animals.add(new Dog("canis lupus", 4, false, "brasse"));
+		animals.add(new Dog("canis lupus", 4, false, "Charlie"));
 		animals.add(new Cat("lynx lynx", 3, 9));
 		Cat cat = new Cat("lynx lynx", 3, 9);
-		cat.setFriendlyName("misse");
+		cat.setFriendlyName("Candy");
 		animals.add(cat);
 		animals.add(new Snake("python skitfarlig", true));
 		Snake snake = new Snake("python", false);
-		snake.setFriendlyName("Bengt");
+		snake.setFriendlyName("Sneaky");
 		animals.add(snake);
 		
-		for(Animal animal : animals) {
-			System.out.println(animal.getInfo());
+		for (int i = 0; i < animals.size(); i++ ){
+			textArea.append(animals.get(i).getInfo() + "\n");
 		}
-
-	}
-	
-	public GUI() {
-		initialize();
-	}
-
-	/**
-	 * Initialize the contents of the frame.
-	 */
-	private void initialize() {
-		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
 		
-		TextArea textArea = new TextArea();
-		textArea.setBounds(10, 32, 414, 219);
-		frame.getContentPane().add(textArea);
-		
-		JLabel lblAnimalList = new JLabel("Animal List");
-		lblAnimalList.setBounds(10, 11, 116, 14);
-		frame.getContentPane().add(lblAnimalList);
 	}
 }

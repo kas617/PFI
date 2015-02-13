@@ -22,10 +22,10 @@ public class Dog extends Mammal {
 		String info = "";
 		if(isStupid) {
 			info = "A dog named: " + getFriendlyName() + ", latin: " + getLatinName() + 
-			" That nursed for" + getGestationTime() + "months and is stupid";
+			" That nursed for: " + getGestationTime() + "months and is stupid";
 		} else {
 			info = "A dog named: " + getFriendlyName() + ", latin: " + getLatinName() + 
-			" That nursed for" + getGestationTime() + " months and is not stupid";
+			" That nursed for: " + getGestationTime() + " months and is not stupid";
 		}
 		return info;
 	}

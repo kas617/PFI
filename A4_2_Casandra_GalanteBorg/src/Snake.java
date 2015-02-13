@@ -11,10 +11,10 @@ public class Snake extends Animal {
 	public String getInfo() {
 		String info = "";
 		if(isPoisonous) {
-			info = "A snake named" + getFriendlyName() + ", latin: " + getLatinName() +
+			info = "A snake named: " + getFriendlyName() + ", latin: " + getLatinName() +
 				" and that is poisonus";
 		} else {
-			info = "A snake named " + getFriendlyName() + ", latin: " + getLatinName() +
+			info = "A snake named:  " + getFriendlyName() + ", latin: " + getLatinName() +
 				" and that is poisonus";
 		}
 		
