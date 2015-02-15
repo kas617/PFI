@@ -31,6 +31,7 @@ public class GUI extends JFrame {
 		});
 	}
 
+	
 	/**
 	 * Create the frame.
 	 */
